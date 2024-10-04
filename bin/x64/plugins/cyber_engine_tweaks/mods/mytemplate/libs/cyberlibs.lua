@@ -115,6 +115,36 @@ function cyberlibs.ImportDataPackFolder()
 
 end
 
+function cyberlibs.saveFile(path,objm)
+
+	local file = assert(io.open(path, "w"))
+	local stringg = JSON:encode_pretty(objm)
+	file:write(stringg)
+	file:close()
+
+end
+
+function cyberlibs.readFile(path)
+
+	local foo = io.open(path)
+	local lines = foo:read("*a")
+	local jsonf = nil
+	if(lines ~= "") then
+		jsonf = trydecodeJSOn(lines,foo,path)
+	else
+		res = false
+		
+	end
+	foo:close()
+	return jsonf
+end
+
+function cyberlibs.deleteFile(path)
+
+	os.remove(path)
+
+end
+
 function loadDatapackObject(datapack,tag)
 
 	local namespace = tag
