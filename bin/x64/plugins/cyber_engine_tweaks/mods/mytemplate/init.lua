@@ -24,8 +24,8 @@ function mod.readFile(path)
 	return cyberlibs.readFile(path)
 end
 
-function mod.saveFile(path,objm)
-	cyberlibs.saveFile(path,objm)
+function mod.saveFile(path,objm,types)
+	cyberlibs.saveFile(path,objm,types)
 end
 
 function mod.deleteFile(path)

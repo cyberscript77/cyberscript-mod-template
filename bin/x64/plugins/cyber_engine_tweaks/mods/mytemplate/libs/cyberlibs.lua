@@ -58,7 +58,7 @@ function cyberlibs.init(mod)
 	local lines = flo:read("*a")
 	local jsonf = trydecodeJSOn(lines,flo,path)
 	flo:close()
-	local tag = jsonf.tag
+	tag = jsonf.tag
 
 	if GetMod('cyberscript') then 
 		cyberscript =  GetMod("cyberscript")
@@ -84,7 +84,7 @@ function cyberlibs.ImportDataPackFolder()
 	local lines = flo:read("*a")
 	local jsonf = trydecodeJSOn(lines,flo,path)
 	flo:close()
-	local tag = jsonf.tag
+	tag = jsonf.tag
 	local datapack = {}
 
 	datapack = {}
@@ -115,12 +115,27 @@ function cyberlibs.ImportDataPackFolder()
 
 end
 
-function cyberlibs.saveFile(path,objm)
+function cyberlibs.saveFile(path,objm,types)
 
-	local file = assert(io.open(path, "w"))
-	local stringg = JSON:encode_pretty(objm)
-	file:write(stringg)
-	file:close()
+	local reader = dir("datapack/"..types)
+				
+	if(reader == nil) then
+		
+		print(tag.." Error :  the folder "..types.."do not exist !")
+		spdlog.error(tag.." Error :  the folder "..types.."do not exist !")
+			
+			
+	else
+			
+			local file = assert(io.open(path, "w"))
+			local stringg = JSON:encode_pretty(objm)
+			file:write(stringg)
+			file:close()
+			
+	end
+
+
+
 
 end
 
