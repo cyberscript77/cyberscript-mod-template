@@ -145,8 +145,8 @@ function loadDatapackObject(datapack,tag)
 					
 					
 					imageobj.name = reader[i].name
-					imageobj.path="datapack/"..namespace.."/"..objtype.."/"..reader[i].name
-					imageobj.file="datapack/"..namespace.."/"..objtype.."/"..reader[i].name
+					imageobj.path="datapack/"..objtype.."/"..reader[i].name
+					imageobj.file="datapack/"..objtype.."/"..reader[i].name
 					imageobj.namespace = namespace
 					
 					
