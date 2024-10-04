@@ -1,0 +1,12 @@
+{
+  "author": "donk7413",
+  "file": "mytemplate.zip",
+  "requirement": "1.1.2",
+  "isdebug": false,
+  "desc": "mytemplate",
+  "branch": "beta",
+  "name": "mytemplate",
+  "version": "1.5.0",
+  "flags": [ "compile" ],
+  "tag": "mytemplate"
+}
