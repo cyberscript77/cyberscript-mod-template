@@ -28,6 +28,10 @@ function mod.saveFile(path,objm,types)
 	cyberlibs.saveFile(path,objm,types)
 end
 
+function mod.saveDesc(objm)
+	cyberlibs.saveDesc(objm)
+end
+
 function mod.deleteFile(path)
 	cyberlibs.deleteFile(path)
 end

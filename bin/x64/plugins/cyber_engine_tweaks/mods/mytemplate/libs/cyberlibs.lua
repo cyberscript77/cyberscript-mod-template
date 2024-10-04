@@ -139,6 +139,22 @@ function cyberlibs.saveFile(path,objm,types)
 
 end
 
+
+function cyberlibs.saveDesc(objm)
+
+	
+			local file = assert(io.open("desc.json", "w"))
+			local stringg = JSON:encode_pretty(objm)
+			file:write(stringg)
+			file:close()
+			
+	
+
+
+
+
+end
+
 function cyberlibs.readFile(path)
 
 	local foo = io.open(path)
