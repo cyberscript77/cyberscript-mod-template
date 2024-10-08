@@ -3,18 +3,28 @@ local init_version = "1.0"
 
 local mod = { 
 	
-	datapack = {}
+	datapack = {},
+	loaded = false
 }
 
 
 
 JSON = assert(loadfile("libs/json.lua"))()
 cyberlibs = assert(loadfile("libs/cyberlibs.lua"))()
-	
-registerForEvent("onInit", function()
-	cyberlibs.init(mod)
-end)
 
+registerForEvent("onUpdate", function(delta)
+	if(mod.loaded == false) then
+		if GetMod('cyberscript') then 
+			cyberlibs.init(mod)
+			if(mod.loaded == true) then
+				print(tag.." loaded into CyberScript")
+			end 
+		else 
+			print("ERROR : "..tag.." : CyberScript not found !")
+		end
+	end
+	
+end)
 
 function mod.compile()
 	return cyberlibs.ImportDataPackFolder()

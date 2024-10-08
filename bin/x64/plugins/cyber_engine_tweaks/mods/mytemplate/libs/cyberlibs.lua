@@ -52,7 +52,7 @@ function trydecodeJSOn(text, file,path)
 end
 
 function cyberlibs.init(mod)
-	
+	mod.loaded = true
 	local path = "desc.json"
 	local flo = io.open(path)
 	local lines = flo:read("*a")
@@ -60,18 +60,17 @@ function cyberlibs.init(mod)
 	flo:close()
 	tag = jsonf.tag
 
-	if GetMod('cyberscript') then 
-		cyberscript =  GetMod("cyberscript")
-		if(cyberscript.datapackRegistry == nil) then
-			cyberscript.datapackRegistry = {}
-		end
-		
-		table.insert(cyberscript.datapackRegistry,tag)
-		print(tag.." loaded into CyberScript")
-	else 
-		print("ERROR : "..tag.." : CyberScript not found !")
-			
+	cyberscript =  GetMod("cyberscript")
+	if(cyberscript.datapackRegistry == nil) then
+		cyberscript.datapackRegistry = {}
 	end
+	
+	table.insert(cyberscript.datapackRegistry,tag)
+	
+		
+	
+			
+	
 	
 	
 	
