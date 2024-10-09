@@ -116,7 +116,7 @@ end
 
 function cyberlibs.saveFile(path,objm,types)
 
-	local reader = dir("datapack/"..types)
+	local reader = dir("scripts/"..types)
 				
 	if(reader == nil) then
 		
@@ -186,7 +186,7 @@ function loadDatapackObject(datapack,tag)
 	for i=1,#cyberscript.datapackObjectType do
 		local objtype = cyberscript.datapackObjectType[i]
 		
-		local reader = dir("datapack/"..objtype)
+		local reader = dir("scripts/"..objtype)
 		if(reader ~= nil) then
 			datapack[objtype] = {}
 			for i=1, #reader do 
@@ -205,8 +205,8 @@ function loadDatapackObject(datapack,tag)
 					
 					
 					imageobj.name = reader[i].name
-					imageobj.path="datapack/"..objtype.."/"..reader[i].name
-					imageobj.file="datapack/"..objtype.."/"..reader[i].name
+					imageobj.path="scripts/"..objtype.."/"..reader[i].name
+					imageobj.file="scripts/"..objtype.."/"..reader[i].name
 					imageobj.namespace = namespace
 					
 					
@@ -222,10 +222,10 @@ function loadDatapackObject(datapack,tag)
 					
 					if(tostring(reader[i].type) == "file" and string.match(tostring(reader[i].name), ".json")) then
 						
-						local foo = io.open("datapack/"..objtype.."/"..reader[i].name)
+						local foo = io.open("scripts/"..objtype.."/"..reader[i].name)
 						local lines = foo:read("*a")
 						if(lines ~= "") then
-							local jsonf = trydecodeJSOn(lines,foo,"datapack/"..objtype.."/"..reader[i].name)
+							local jsonf = trydecodeJSOn(lines,foo,"scripts/"..objtype.."/"..reader[i].name)
 							datapack[objtype][tostring(reader[i].name)] = {}
 							datapack[objtype][tostring(reader[i].name)] = jsonf
 							
