@@ -43,7 +43,8 @@ function trydecodeJSOn(text, file,path)
 		catch {
 			function(error)
 				
-				logme(1,'Error decoding JSON : '..error.." ( path : "..path,true)
+				print('Error decoding JSON : '..error.." ( path : "..path)
+				spdlog.error('Error decoding JSON : '..error.." ( path : "..path)
 				file:close()
 			end
 		}
