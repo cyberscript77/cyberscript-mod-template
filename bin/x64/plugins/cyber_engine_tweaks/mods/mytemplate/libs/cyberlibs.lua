@@ -227,9 +227,13 @@ function loadDatapackObject(datapack,tag)
 						local lines = foo:read("*a")
 						if(lines ~= "") then
 							local jsonf = trydecodeJSOn(lines,foo,"scripts/"..objtype.."/"..reader[i].name)
-							datapack[objtype][tostring(reader[i].name)] = {}
-							datapack[objtype][tostring(reader[i].name)] = jsonf
 							
+								if(jsonf == nil) then
+									error("Error while decoding json for ".."scripts/"..objtype.."/"..reader[i].name)
+								else
+									datapack[objtype][tostring(reader[i].name)] = {}
+									datapack[objtype][tostring(reader[i].name)] = jsonf
+								end
 							else
 							res = false
 							
